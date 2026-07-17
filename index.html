@@ -16,6 +16,10 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="light-theme.css">
 </head>
@@ -61,11 +65,72 @@
     <!-- Hero Banner -->
     <section class="hero-banner-custom position-relative overflow-hidden"
         style="min-height:92vh; display:flex; align-items:center;">
+
+        <!-- Left Side Background Color Glow -->
+        <div class="position-absolute rounded-circle pointer-events-none"
+            style="width: 800px; height: 800px; background: radial-gradient(circle, rgba(37,99,235,0.07) 0%, rgba(255,255,255,0) 70%); top: -200px; left: -300px; z-index: 0; filter: blur(60px);">
+        </div>
+
+        <!-- Left Side Animated Floating Icons (Subtle Geometric Shapes) -->
+        <style>
+            @keyframes floatWidget {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-15px);
+                }
+            }
+
+            @keyframes spinSlow {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+        <div class="d-none d-lg-block position-absolute h-100 start-0 top-0 w-25 pointer-events-none"
+            style="z-index: 0;">
+            <!-- Floating Plus -->
+            <div class="position-absolute" style="top: 15%; left: 15%; animation: floatWidget 6s ease-in-out infinite;">
+                <i class="bi bi-plus-lg text-primary opacity-25"
+                    style="font-size: 2rem; display: inline-block; animation: spinSlow 15s linear infinite;"></i>
+            </div>
+            <!-- Floating Circle -->
+            <div class="position-absolute"
+                style="top: 45%; left: 5%; animation: floatWidget 7s ease-in-out infinite 1.5s;">
+                <div class="rounded-circle border border-3 border-primary opacity-25"
+                    style="width: 24px; height: 24px;"></div>
+            </div>
+            <!-- Floating Triangle -->
+            <div class="position-absolute"
+                style="bottom: 25%; left: 18%; animation: floatWidget 5s ease-in-out infinite 0.5s;">
+                <i class="bi bi-triangle text-primary opacity-25 fs-4" style="transform: rotate(25deg);"></i>
+            </div>
+            <!-- Floating Dot Grid (Optional extra texture) -->
+            <div class="position-absolute"
+                style="bottom: 10%; left: 5%; animation: floatWidget 8s ease-in-out infinite 2s;">
+                <i class="bi bi-grid-3x3-gap-fill text-primary opacity-10 fs-2"></i>
+            </div>
+        </div>
+        
+        <!-- Right Half Full-Bleed Image Background to remove gaps -->
+        <div class="position-absolute top-0 end-0 h-100 d-none d-lg-block" style="width: 50vw; background: url('./assets/hero-banner-new.png') center right / cover no-repeat; z-index: 0;">
+            <!-- Smooth fade gradient to seamlessly blend the image into the left side -->
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to right, var(--bg-main) 0%, transparent 10%);"></div>
+        </div>
+
         <div class="container position-relative z-1" style="padding-top:60px; padding-bottom:60px;">
             <div class="row align-items-center">
 
                 <!-- Left: Text Content -->
-                <div class="col-lg-6 col-xl-5 text-center text-lg-start">
+                <div class="col-lg-6 col-xl-6 text-center text-lg-start">
 
                     <!-- Top chip -->
                     <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4 hero-chip">
@@ -77,10 +142,19 @@
                     <!-- Headline -->
                     <h1 class="font-display fw-bold text-white mb-4 tracking-tight"
                         style="font-size:clamp(2.4rem,5vw,3.5rem); line-height:1.08;">
-                        Integrate the World's&nbsp;#1<br>
+                        Integrate the No.1<br>
                         <span class="text-gradient" style="font-size:1.05em;">Crash Game</span>
                         <span class="text-white"> Into Your Platform</span>
                     </h1>
+                    
+                    <!-- Dynamic Typewriter Text -->
+                    <div class="font-display fw-bold mb-4 d-flex align-items-center justify-content-center justify-content-lg-start gap-2" 
+                        style="font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--accent); min-height: 2.2rem;">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        <div>
+                            <span id="hero-typewriter"></span><span class="typewriter-cursor">|</span>
+                        </div>
+                    </div>
 
                     <!-- Subtext -->
                     <p class="font-body fs-5 mb-5 mx-auto mx-lg-0"
@@ -91,9 +165,9 @@
 
                     <!-- CTA Buttons -->
                     <div
-                        class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3 mb-5">
+                        class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3 mb-4">
                         <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
-                            class="btn btn-primary-custom rounded-pill px-4 px-lg-5 py-3 fw-bold font-body fs-6 d-flex align-items-center justify-content-center gap-2 border-0 text-nowrap">
+                            class="btn btn-primary-custom rounded-pill px-4 px-lg-5 py-3 fw-bold font-body fs-6 d-flex align-items-center justify-content-center gap-2 text-nowrap">
                             <i class="bi bi-rocket-takeoff-fill fs-5"></i> Get Started Now
                         </a>
                         <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
@@ -104,7 +178,7 @@
 
                     <!-- Trust row -->
                     <div
-                        class="d-flex flex-wrap justify-content-center justify-content-lg-start align-items-center gap-3">
+                        class="d-flex flex-wrap justify-content-center justify-content-lg-start align-items-center gap-2">
                         <div class="hero-trust-badge">
                             <i class="bi bi-shield-fill-check"></i> Provably Fair
                         </div>
@@ -120,8 +194,12 @@
                     </div>
                 </div>
 
-                <!-- Right: floating stat pills over the image -->
-                <div class="col-lg-6 col-xl-7 position-relative d-none d-lg-block">
+                <!-- Right: floating stat pills (and mobile image) -->
+                <div class="col-lg-6 col-xl-6 position-relative mt-5 mt-lg-0" style="min-height: 450px;">
+                    
+                    <!-- Mobile-only image (Desktop uses the full-bleed background) -->
+                    <img src="./assets/hero-banner-new.png" alt="Aviator" class="img-fluid rounded-4 shadow-lg w-100 d-block d-lg-none" style="object-fit: cover; max-height: 500px;" />
+
                     <!-- Floating stat bubbles -->
                     <div class="hero-stat-bubble hero-stat-bubble-1 float-anim-1">
                         <div class="hsb-icon"><i class="bi bi-trophy-fill"></i></div>
@@ -179,8 +257,7 @@
                                 style="box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                                 <i class="bi bi-people-fill text-accent fs-2 mb-2"></i>
                                 <h6 class="text-white fw-bold mb-1 fs-6 lh-sm">Millions of</h6>
-                                <p class="text-white-50 fs-8 mb-0 lh-sm text-uppercase letter-spacing-1">Active Players
-                                </p>
+                                <p class="text-white-50 fs-8 mb-0 lh-sm text-uppercase letter-spacing-1">Active Players</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
@@ -206,8 +283,40 @@
     </section>
 
     <!-- Why Choose SPRIBE Aviator Grid -->
-    <section id="why-choose-us" class="py-100 bg-black position-relative border-bottom border-white-5">
-        <div class="container">
+    <section id="why-choose-us" class="py-100 bg-black position-relative border-bottom border-white-5 overflow-hidden">
+
+        <!-- Left & Right Background Decor -->
+        <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none z-0 d-none d-xl-block">
+            <!-- Left Glow -->
+            <div class="position-absolute rounded-circle"
+                style="width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, rgba(255,255,255,0) 70%); top: 10%; left: -200px; filter: blur(40px);">
+            </div>
+            <!-- Right Glow -->
+            <div class="position-absolute rounded-circle"
+                style="width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, rgba(255,255,255,0) 70%); bottom: -100px; right: -200px; filter: blur(40px);">
+            </div>
+
+            <!-- Left Floating Tech Shapes -->
+            <div class="position-absolute" style="top: 20%; left: 8%; animation: floatWidget 7s ease-in-out infinite;">
+                <i class="bi bi-code-slash text-primary opacity-25" style="font-size: 5rem;"></i>
+            </div>
+            <div class="position-absolute"
+                style="bottom: 25%; left: 12%; animation: floatWidget 5s ease-in-out infinite 1s;">
+                <i class="bi bi-server text-primary opacity-25" style="font-size: 3.5rem;"></i>
+            </div>
+
+            <!-- Right Floating Tech Shapes -->
+            <div class="position-absolute"
+                style="top: 25%; right: 10%; animation: floatWidget 6s ease-in-out infinite 0.5s;">
+                <i class="bi bi-diagram-3 text-primary opacity-25" style="font-size: 4rem;"></i>
+            </div>
+            <div class="position-absolute"
+                style="bottom: 15%; right: 8%; animation: floatWidget 8s ease-in-out infinite 2s;">
+                <i class="bi bi-database text-primary opacity-25" style="font-size: 4.5rem;"></i>
+            </div>
+        </div>
+
+        <div class="container position-relative z-1">
             <div class="text-center mb-5 pb-3">
                 <span class="badge-custom mb-4">Features</span>
                 <h2 class="font-display display-5 fw-bold text-white mb-3 tracking-tight">Why Choose <span
@@ -216,86 +325,138 @@
 
             <style>
                 .hex-wrapper {
-                    filter: drop-shadow(0 15px 25px rgba(37,99,235,0.08));
-                    transition: transform 0.3s ease;
+                    filter: drop-shadow(0 10px 25px rgba(37, 99, 235, 0.15));
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 }
+
                 .hex-wrapper:hover {
-                    transform: translateY(-10px);
-                    filter: drop-shadow(0 20px 35px rgba(37,99,235,0.15));
+                    transform: translateY(-12px) scale(1.02);
+                    filter: drop-shadow(0 25px 40px rgba(37, 99, 235, 0.25));
                 }
+
                 .hex-cell {
                     width: 280px;
                     height: 323px;
                     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-                    background: #ffffff;
+                    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
                 }
+                
+                /* On mobile, remove the hexagon clip-path so they stack beautifully as normal cards */
+                @media (max-width: 991px) {
+                    .hex-cell {
+                        width: 100%;
+                        max-width: 320px;
+                        height: auto;
+                        min-height: 200px;
+                        clip-path: none;
+                        border-radius: 16px;
+                        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+                        border: 1px solid rgba(0,0,0,0.05);
+                    }
+                    .hex-wrapper {
+                        filter: none;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+                
+                .hex-cell p {
+                    color: #334155 !important;
+                    font-size: 0.85rem !important;
+                    font-weight: 500;
+                    line-height: 1.5;
+                }
+                
+                .hex-cell h4 {
+                    color: #0f172a !important;
+                    font-size: 1.05rem !important;
+                    font-weight: 800;
+                    letter-spacing: -0.2px;
+                }
+
                 .hex-icon-ring {
                     width: 64px;
                     height: 64px;
-                    background: rgba(37,99,235,0.1);
+                    background: rgba(37, 99, 235, 0.1);
                     color: #2563eb;
-                    border: 1px solid rgba(37,99,235,0.2);
+                    border: 1px solid rgba(37, 99, 235, 0.2);
                 }
             </style>
-            
+
             <div class="honeycomb-container mx-auto" style="max-width: 900px; padding-bottom: 40px;">
-                
+
                 <!-- Desktop Honeycomb Layout (2-3-2 Cluster) -->
                 <div class="d-none d-lg-block">
                     <!-- Row 1: 2 Hexagons -->
                     <div class="d-flex justify-content-center gap-3">
                         <!-- Hex 1 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-lightning-charge fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Fast API</h4>
-                                <p class="text-secondary fs-7 mb-0">Launch Aviator quickly with our simple developer API.</p>
+                                <p class="text-secondary fs-7 mb-0">Launch Aviator quickly with our simple developer
+                                    API.</p>
                             </div>
                         </div>
                         <!-- Hex 2 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-graph-up-arrow fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Maximum Revenue</h4>
-                                <p class="text-secondary fs-7 mb-0">Low cost and high player engagement delivers ROI.</p>
+                                <p class="text-secondary fs-7 mb-0">Low cost and high player engagement delivers ROI.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Row 2: 3 Items (Hex - Central Hex - Hex) -->
                     <div class="d-flex justify-content-center gap-3" style="margin-top: -65px;">
                         <!-- Hex 3 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-people fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Player Retention</h4>
                                 <p class="text-secondary fs-7 mb-0">Fast-paced gameplay encourages repeat sessions.</p>
                             </div>
                         </div>
-                        
+
                         <!-- Central Circle Hub -->
-                        <div class="d-flex align-items-center justify-content-center position-relative" style="width: 280px; height: 323px; z-index: 2;">
-                            <div class="rounded-circle d-flex flex-column align-items-center justify-content-center text-center position-relative hover-lift" 
-                                 style="width: 250px; height: 250px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); 
+                        <div class="d-flex align-items-center justify-content-center position-relative"
+                            style="width: 280px; height: 323px; z-index: 2;">
+                            <div class="rounded-circle d-flex flex-column align-items-center justify-content-center text-center position-relative hover-lift"
+                                style="width: 250px; height: 250px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); 
                                         transition: all 0.4s ease;">
                                 <!-- Optional glowing ring behind -->
-                                <div class="position-absolute top-50 start-50 translate-middle rounded-circle w-100 h-100" style="border: 2px solid rgba(37, 99, 235, 0.3); transform: scale(1.08);"></div>
-                                
-                                <h3 class="font-display fw-bold fs-3 mb-1 position-relative z-1" style="color: #ffffff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">SPRIBE</h3>
-                                <span class="fs-7 letter-spacing-1 text-uppercase fw-medium position-relative z-1" style="color: #ffffff !important; opacity: 0.85;">Aviator API</span>
+                                <div class="position-absolute top-50 start-50 translate-middle rounded-circle w-100 h-100"
+                                    style="border: 2px solid rgba(37, 99, 235, 0.3); transform: scale(1.08);"></div>
+
+                                <h3 class="font-display fw-bold fs-3 mb-1 position-relative z-1"
+                                    style="color: #ffffff !important; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">SPRIBE
+                                </h3>
+                                <span class="fs-7 letter-spacing-1 text-uppercase fw-medium position-relative z-1"
+                                    style="color: #ffffff !important; opacity: 0.85;">Aviator API</span>
                             </div>
                         </div>
 
                         <!-- Hex 4 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-shield-check fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Provably Fair</h4>
@@ -308,8 +469,10 @@
                     <div class="d-flex justify-content-center gap-3" style="margin-top: -65px;">
                         <!-- Hex 5 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-phone fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Cross-Platform</h4>
@@ -318,8 +481,10 @@
                         </div>
                         <!-- Hex 6 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-headset fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Dedicated Support</h4>
@@ -328,12 +493,12 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Mobile & Tablet Fallback (One by One) -->
-                <div class="d-flex flex-column align-items-center gap-4 d-lg-none mt-4">
-                    <!-- Hex 1 -->
-                    <div class="hex-wrapper">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+
+                <!-- Mobile & Tablet Fallback (Vertical Cards) -->
+                <div class="d-flex flex-column align-items-center gap-3 d-lg-none mt-4 px-3 w-100">
+                    <!-- Card 1 -->
+                    <div class="hex-wrapper w-100" style="max-width: 320px;">
+                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
                             <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-lightning-charge fs-4"></i>
                             </div>
@@ -341,9 +506,9 @@
                             <p class="text-secondary fs-7 mb-0">Launch Aviator quickly with our simple developer-friendly API.</p>
                         </div>
                     </div>
-                    <!-- Hex 2 -->
-                    <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                    <!-- Card 2 -->
+                    <div class="hex-wrapper w-100" style="max-width: 320px;">
+                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
                             <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-graph-up-arrow fs-4"></i>
                             </div>
@@ -351,9 +516,9 @@
                             <p class="text-secondary fs-7 mb-0">Low integration cost combined with high player engagement delivers ROI.</p>
                         </div>
                     </div>
-                    <!-- Hex 3 -->
-                    <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                    <!-- Card 3 -->
+                    <div class="hex-wrapper w-100" style="max-width: 320px;">
+                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
                             <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-people fs-4"></i>
                             </div>
@@ -361,9 +526,9 @@
                             <p class="text-secondary fs-7 mb-0">Fast-paced gameplay encourages repeat sessions and longer play time.</p>
                         </div>
                     </div>
-                    <!-- Hex 4 -->
-                    <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                    <!-- Card 4 -->
+                    <div class="hex-wrapper w-100" style="max-width: 320px;">
+                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
                             <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-shield-check fs-4"></i>
                             </div>
@@ -371,9 +536,9 @@
                             <p class="text-secondary fs-7 mb-0">Every game round is transparent and verifiable, building absolute trust.</p>
                         </div>
                     </div>
-                    <!-- Hex 5 -->
-                    <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                    <!-- Card 5 -->
+                    <div class="hex-wrapper w-100" style="max-width: 320px;">
+                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
                             <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-phone fs-4"></i>
                             </div>
@@ -381,9 +546,9 @@
                             <p class="text-secondary fs-7 mb-0">Flawlessly optimized for desktop, Android, and iOS devices worldwide.</p>
                         </div>
                     </div>
-                    <!-- Hex 6 -->
-                    <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                    <!-- Card 6 -->
+                    <div class="hex-wrapper w-100" style="max-width: 320px;">
+                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
                             <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-headset fs-4"></i>
                             </div>
@@ -402,30 +567,41 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 pe-lg-5">
                     <span class="text-accent fw-bold fs-8 letter-spacing-1 text-uppercase mb-2 d-block">THE GAME</span>
-                    <h2 class="font-display display-5 fw-bold text-dark mb-4 tracking-tight">What is <span class="text-gradient">Aviator?</span></h2>
+                    <h2 class="font-display display-5 fw-bold text-dark mb-4 tracking-tight">What is <span
+                            class="text-gradient">Aviator?</span></h2>
                     <p class="font-body text-secondary fs-5 mb-4 line-height-base">
-                        Aviator is a multiplayer crash game where a virtual plane takes off while the multiplier continuously increases.
+                        Aviator is a multiplayer crash game where a virtual plane takes off while the multiplier
+                        continuously increases.
                     </p>
                     <p class="font-body text-secondary text-opacity-75 fs-6 mb-5 line-height-base">
-                        Players choose when to cash out before the plane flies away. The longer they wait, the higher the multiplier—but if the plane flies away first, the bet is lost.
+                        Players choose when to cash out before the plane flies away. The longer they wait, the higher
+                        the multiplier—but if the plane flies away first, the bet is lost.
                     </p>
-                    
+
                     <!-- Premium Quote Box -->
-                    <div class="p-4 rounded-4 bg-white shadow-sm position-relative overflow-hidden" style="border-left: 4px solid #2563eb;">
-                        <i class="bi bi-quote position-absolute text-primary" style="font-size: 6rem; top: -20px; right: -10px; opacity: 0.05; z-index: 0;"></i>
-                        <p class="font-body text-dark fw-medium fs-6 mb-0 fst-italic position-relative z-1" style="line-height: 1.6;">
-                            "This simple yet exciting concept has made Aviator one of the highest-performing games in the iGaming industry."
+                    <div class="p-4 rounded-4 bg-white shadow-sm position-relative overflow-hidden"
+                        style="border-left: 4px solid #2563eb;">
+                        <i class="bi bi-quote position-absolute text-primary"
+                            style="font-size: 6rem; top: -20px; right: -10px; opacity: 0.05; z-index: 0;"></i>
+                        <p class="font-body text-dark fw-medium fs-6 mb-0 fst-italic position-relative z-1"
+                            style="line-height: 1.6;">
+                            "This simple yet exciting concept has made Aviator one of the highest-performing games in
+                            the iGaming industry."
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 position-relative mt-5 mt-lg-0">
                     <!-- Glowing Background Orb -->
-                    <div class="position-absolute top-50 start-50 translate-middle w-75 h-75 bg-primary rounded-circle" style="filter: blur(80px); opacity: 0.15; z-index: 0;"></div>
-                    
+                    <div class="position-absolute top-50 start-50 translate-middle w-75 h-75 bg-primary rounded-circle"
+                        style="filter: blur(80px); opacity: 0.15; z-index: 0;"></div>
+
                     <!-- Floating Image -->
-                    <div class="position-relative z-1 hover-lift transition-all" style="animation: floatWidget 6s ease-in-out infinite;">
-                        <img src="./assets/aviator_api_dashboard.png" alt="Aviator API Dashboard" class="img-fluid rounded-4 shadow-2xl border" style="border-color: rgba(37,99,235,0.1) !important;">
+                    <div class="position-relative z-1 hover-lift transition-all"
+                        style="animation: floatWidget 6s ease-in-out infinite;">
+                        <img src="./assets/aviator_api_dashboard.png" alt="Aviator API Dashboard"
+                            class="img-fluid rounded-4 shadow-2xl border"
+                            style="border-color: rgba(37,99,235,0.1) !important;">
                     </div>
                 </div>
             </div>
@@ -446,8 +622,10 @@
                     <div class="d-flex justify-content-center gap-3">
                         <!-- Hex 1 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-globe2 fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Real-Time Multiplayer</h4>
@@ -456,46 +634,58 @@
                         </div>
                         <!-- Hex 2 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-graph-up fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Live Multipliers</h4>
-                                <p class="text-secondary fs-7 mb-0">Watch the multiplier rise in real time for thrilling gameplay.</p>
+                                <p class="text-secondary fs-7 mb-0">Watch the multiplier rise in real time for thrilling
+                                    gameplay.</p>
                             </div>
                         </div>
                         <!-- Hex 3 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-lightning fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Instant Betting</h4>
-                                <p class="text-secondary fs-7 mb-0">Quick betting rounds keep players constantly engaged.</p>
+                                <p class="text-secondary fs-7 mb-0">Quick betting rounds keep players constantly
+                                    engaged.</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Row 2: 2 Hexagons (Interlocking) -->
                     <div class="d-flex justify-content-center gap-3" style="margin-top: -65px;">
                         <!-- Hex 4 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-chat-dots fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Live Chat Community</h4>
-                                <p class="text-secondary fs-7 mb-0">Interactive chat enhances the social gaming experience.</p>
+                                <p class="text-secondary fs-7 mb-0">Interactive chat enhances the social gaming
+                                    experience.</p>
                             </div>
                         </div>
                         <!-- Hex 5 -->
                         <div class="hex-wrapper">
-                            <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                                <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                            <div
+                                class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                                <div
+                                    class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                     <i class="bi bi-check-circle fs-4"></i>
                                 </div>
                                 <h4 class="font-display fw-bold text-dark fs-6 mb-2">Transparent Gameplay</h4>
-                                <p class="text-secondary fs-7 mb-0">Provably fair mechanics ensure every round is trustworthy.</p>
+                                <p class="text-secondary fs-7 mb-0">Provably fair mechanics ensure every round is
+                                    trustworthy.</p>
                             </div>
                         </div>
                     </div>
@@ -505,8 +695,10 @@
                 <div class="d-flex flex-column align-items-center gap-4 d-lg-none mt-4">
                     <!-- Hex 1 -->
                     <div class="hex-wrapper">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-globe2 fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Real-Time Multiplayer</h4>
@@ -515,42 +707,54 @@
                     </div>
                     <!-- Hex 2 -->
                     <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-graph-up fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Live Multipliers</h4>
-                            <p class="text-secondary fs-7 mb-0">Watch the multiplier rise in real time for thrilling gameplay.</p>
+                            <p class="text-secondary fs-7 mb-0">Watch the multiplier rise in real time for thrilling
+                                gameplay.</p>
                         </div>
                     </div>
                     <!-- Hex 3 -->
                     <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-lightning fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Instant Betting</h4>
-                            <p class="text-secondary fs-7 mb-0">Quick betting rounds keep players constantly engaged.</p>
+                            <p class="text-secondary fs-7 mb-0">Quick betting rounds keep players constantly engaged.
+                            </p>
                         </div>
                     </div>
                     <!-- Hex 4 -->
                     <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-chat-dots fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Live Chat Community</h4>
-                            <p class="text-secondary fs-7 mb-0">Interactive chat enhances the social gaming experience.</p>
+                            <p class="text-secondary fs-7 mb-0">Interactive chat enhances the social gaming experience.
+                            </p>
                         </div>
                     </div>
                     <!-- Hex 5 -->
                     <div class="hex-wrapper" style="margin-top: -30px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-check-circle fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Transparent Gameplay</h4>
-                            <p class="text-secondary fs-7 mb-0">Provably fair mechanics ensure every round is trustworthy.</p>
+                            <p class="text-secondary fs-7 mb-0">Provably fair mechanics ensure every round is
+                                trustworthy.</p>
                         </div>
                     </div>
                 </div>
@@ -576,17 +780,25 @@
 
                 <!-- Left tall card — Retention -->
                 <div class="col-lg-4">
-                    <div class="benefit-bento-card h-100 position-relative overflow-hidden shadow-2xl transition-all hover-lift" style="min-height:340px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important; border: none !important;">
+                    <div class="benefit-bento-card h-100 position-relative overflow-hidden shadow-2xl transition-all hover-lift"
+                        style="min-height:340px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important; border: none !important;">
                         <!-- Giant subtle background icon -->
-                        <i class="bi bi-arrow-repeat position-absolute" style="color: #ffffff !important; font-size: 14rem; right: -30px; bottom: -30px; opacity: 0.15; transform: rotate(-15deg);"></i>
-                        
+                        <i class="bi bi-arrow-repeat position-absolute"
+                            style="color: #ffffff !important; font-size: 14rem; right: -30px; bottom: -30px; opacity: 0.15; transform: rotate(-15deg);"></i>
+
                         <div class="position-relative z-1 p-3">
-                            <div class="font-display fw-bold mb-4" style="color: rgba(255,255,255,0.6) !important; font-size: 0.85rem; letter-spacing: 2px;">01</div>
-                            <div class="mb-4 bg-white bg-opacity-25 rounded-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 56px; height: 56px; backdrop-filter: blur(4px);">
+                            <div class="font-display fw-bold mb-4"
+                                style="color: rgba(255,255,255,0.6) !important; font-size: 0.85rem; letter-spacing: 2px;">
+                                01</div>
+                            <div class="mb-4 bg-white bg-opacity-25 rounded-3 d-flex align-items-center justify-content-center shadow-sm"
+                                style="width: 56px; height: 56px; backdrop-filter: blur(4px);">
                                 <i class="bi bi-arrow-repeat fs-4" style="color: #ffffff !important;"></i>
                             </div>
-                            <h4 class="font-display fw-bold fs-3 mb-3 tracking-tight" style="color: #ffffff !important;">Increase Player Retention</h4>
-                            <p class="fs-6 mb-0 lh-relaxed" style="color: rgba(255,255,255,0.85) !important;">Aviator encourages frequent gameplay with quick rounds and exciting multipliers that keep players coming back time and time again.</p>
+                            <h4 class="font-display fw-bold fs-3 mb-3 tracking-tight"
+                                style="color: #ffffff !important;">Increase Player Retention</h4>
+                            <p class="fs-6 mb-0 lh-relaxed" style="color: rgba(255,255,255,0.85) !important;">Aviator
+                                encourages frequent gameplay with quick rounds and exciting multipliers that keep
+                                players coming back time and time again.</p>
                         </div>
                     </div>
                 </div>
@@ -727,25 +939,40 @@
                 <!-- Connecting Line with Animation -->
                 <style>
                     @keyframes timelineProgress {
-                        0% { left: -20%; }
-                        100% { left: 100%; }
+                        0% {
+                            left: -20%;
+                        }
+
+                        100% {
+                            left: 100%;
+                        }
                     }
+
                     @keyframes timelineProgressVertical {
-                        0% { top: -20%; }
-                        100% { top: 100%; }
+                        0% {
+                            top: -20%;
+                        }
+
+                        100% {
+                            top: 100%;
+                        }
                     }
                 </style>
-                
+
                 <!-- Desktop Horizontal Line -->
                 <div class="position-absolute top-0 z-0 d-none d-lg-block rounded-pill overflow-hidden"
                     style="margin-top: 40px; width: 80%; left: 10%; height: 3px; background: rgba(37,99,235,0.1);">
-                    <div class="position-absolute top-0 h-100" style="width: 20%; background: linear-gradient(90deg, transparent, #3b82f6, #60a5fa, transparent); animation: timelineProgress 3s ease-in-out infinite;"></div>
+                    <div class="position-absolute top-0 h-100"
+                        style="width: 20%; background: linear-gradient(90deg, transparent, #3b82f6, #60a5fa, transparent); animation: timelineProgress 3s ease-in-out infinite;">
+                    </div>
                 </div>
-                
+
                 <!-- Mobile/Tablet Vertical Line -->
                 <div class="position-absolute start-50 translate-middle-x z-0 d-lg-none rounded-pill overflow-hidden"
                     style="top: 40px; bottom: 80px; width: 3px; background: rgba(37,99,235,0.1);">
-                    <div class="position-absolute start-0 w-100" style="height: 20%; background: linear-gradient(180deg, transparent, #3b82f6, #60a5fa, transparent); animation: timelineProgressVertical 3s ease-in-out infinite;"></div>
+                    <div class="position-absolute start-0 w-100"
+                        style="height: 20%; background: linear-gradient(180deg, transparent, #3b82f6, #60a5fa, transparent); animation: timelineProgressVertical 3s ease-in-out infinite;">
+                    </div>
                 </div>
 
                 <div
@@ -984,78 +1211,101 @@
     <!-- 11th Section: Final CTA -->
     <section class="py-150 border-top border-white-5 bg-black">
         <div class="container">
-                <!-- Creative Ticket CTA -->
-                <div class="position-relative mx-auto" style="max-width: 1100px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));">
-                    <div class="d-flex flex-column flex-lg-row bg-white rounded-4 overflow-hidden position-relative border" style="border-color: rgba(0,0,0,0.05) !important;">
-                        
-                        <!-- Left Main Section -->
-                        <div class="p-5 p-lg-5 text-center text-lg-start flex-grow-1 position-relative">
-                            <!-- Subtle background glow -->
-                            <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none opacity-25" style="background: radial-gradient(circle at 0% 0%, #3b82f6 0%, transparent 50%); z-index: 0;"></div>
-                            
-                            <div class="position-relative z-1">
-                                <h2 class="font-display display-5 fw-bold text-dark mb-3 tracking-tight">
-                                    Ready to Launch <span class="text-gradient text-nowrap">Aviator?</span>
-                                </h2>
-                                <p class="text-secondary fs-6 mb-4 font-body" style="max-width: 600px;">
-                                    Integrate the world's leading crash game and deliver an engaging experience that drives player retention.
-                                </p>
+            <!-- Creative Ticket CTA -->
+            <div class="position-relative mx-auto"
+                style="max-width: 1100px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));">
+                <div class="d-flex flex-column flex-lg-row bg-white rounded-4 overflow-hidden position-relative border"
+                    style="border-color: rgba(0,0,0,0.05) !important;">
 
-                                <div class="d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-lg-start">
-                                    <span class="badge bg-light text-dark border px-3 py-2 fs-8 fw-medium"><i class="bi bi-check-circle-fill text-primary me-1"></i> Fast Integration</span>
-                                    <span class="badge bg-light text-dark border px-3 py-2 fs-8 fw-medium"><i class="bi bi-check-circle-fill text-primary me-1"></i> Competitive Model</span>
-                                    <span class="badge bg-light text-dark border px-3 py-2 fs-8 fw-medium"><i class="bi bi-check-circle-fill text-primary me-1"></i> Tech Support</span>
-                                </div>
+                    <!-- Left Main Section -->
+                    <div class="p-5 p-lg-5 text-center text-lg-start flex-grow-1 position-relative">
+                        <!-- Subtle background glow -->
+                        <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none opacity-25"
+                            style="background: radial-gradient(circle at 0% 0%, #3b82f6 0%, transparent 50%); z-index: 0;">
+                        </div>
 
-                                <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                                    <a href="https://aviatorgames.ai/" target="_blank" rel="noopener" class="btn btn-primary-custom rounded-pill px-4 py-2 font-body fw-bold fs-7 shadow-sm">
-                                        Get Started Now
-                                    </a>
-                                    <a href="https://aviatorgames.ai/" target="_blank" rel="noopener" class="btn btn-outline-dark rounded-pill px-4 py-2 font-body fw-bold fs-7">
-                                        API Docs
-                                    </a>
-                                </div>
+                        <div class="position-relative z-1">
+                            <h2 class="font-display display-5 fw-bold text-dark mb-3 tracking-tight">
+                                Ready to Launch <span class="text-gradient text-nowrap">Aviator?</span>
+                            </h2>
+                            <p class="text-secondary fs-6 mb-4 font-body" style="max-width: 600px;">
+                                Integrate the world's leading crash game and deliver an engaging experience that drives
+                                player retention.
+                            </p>
+
+                            <div class="d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-lg-start">
+                                <span class="badge bg-light text-dark border px-3 py-2 fs-8 fw-medium"><i
+                                        class="bi bi-check-circle-fill text-primary me-1"></i> Fast Integration</span>
+                                <span class="badge bg-light text-dark border px-3 py-2 fs-8 fw-medium"><i
+                                        class="bi bi-check-circle-fill text-primary me-1"></i> Competitive Model</span>
+                                <span class="badge bg-light text-dark border px-3 py-2 fs-8 fw-medium"><i
+                                        class="bi bi-check-circle-fill text-primary me-1"></i> Tech Support</span>
                             </div>
-                        </div>
 
-                        <!-- Ticket Divider (Dashed line with cutouts) -->
-                        <div class="d-none d-lg-flex flex-column align-items-center position-relative" style="width: 2px; background-image: linear-gradient(to bottom, #cbd5e1 50%, transparent 50%); background-size: 2px 12px; background-repeat: repeat-y; z-index: 2;">
-                            <!-- Top Cutout -->
-                            <div class="position-absolute bg-black rounded-circle" style="width: 30px; height: 30px; top: -15px; left: -14px;"></div>
-                            <!-- Bottom Cutout -->
-                            <div class="position-absolute bg-black rounded-circle" style="width: 30px; height: 30px; bottom: -15px; left: -14px;"></div>
-                        </div>
-                        <div class="d-lg-none w-100 position-relative" style="height: 2px; background-image: linear-gradient(to right, #cbd5e1 50%, transparent 50%); background-size: 12px 2px; background-repeat: repeat-x; z-index: 2;">
-                             <!-- Left Cutout -->
-                             <div class="position-absolute bg-black rounded-circle d-none d-sm-block" style="width: 30px; height: 30px; left: -15px; top: -14px;"></div>
-                             <!-- Right Cutout -->
-                             <div class="position-absolute bg-black rounded-circle d-none d-sm-block" style="width: 30px; height: 30px; right: -15px; top: -14px;"></div>
-                        </div>
-
-                        <!-- Right Bonus Section (Tear-off) -->
-                        <div class="p-5 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden" style="min-width: 320px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);">
-                            <!-- Background pattern -->
-                            <i class="bi bi-star-fill position-absolute text-primary" style="font-size: 16rem; right: -40px; bottom: -40px; transform: rotate(-15deg); opacity: 0.05;"></i>
-                            
-                            <div class="position-relative z-1">
-                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto shadow-sm" style="width: 64px; height: 64px;">
-                                    <i class="bi bi-star-fill fs-3" style="animation: floatWidget 2s ease-in-out infinite;"></i>
-                                </div>
-                                <div class="badge bg-primary px-3 py-2 rounded-pill fs-8 letter-spacing-1 fw-bold mb-3 shadow-sm">
-                                    ENTERPRISE TIER
-                                </div>
-                                <h4 class="font-display fw-bold text-dark mb-2">VIP Integration</h4>
-                                <p class="text-secondary fs-7 font-body mb-4 leading-tight">Priority technical setup & dedicated account management.</p>
-                                
-                                <a href="https://aviatorgames.ai/" target="_blank" rel="noopener" class="btn btn-primary-custom w-100 rounded-pill font-body fw-bold fs-7 py-2 shadow">
-                                    Unlock Access
+                            <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                                <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
+                                    class="btn btn-primary-custom rounded-pill px-4 py-2 font-body fw-bold fs-7 shadow-sm">
+                                    Get Started Now
+                                </a>
+                                <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
+                                    class="btn btn-outline-dark rounded-pill px-4 py-2 font-body fw-bold fs-7">
+                                    API Docs
                                 </a>
                             </div>
                         </div>
-
                     </div>
+
+                    <!-- Ticket Divider (Dashed line with cutouts) -->
+                    <div class="d-none d-lg-flex flex-column align-items-center position-relative"
+                        style="width: 2px; background-image: linear-gradient(to bottom, #cbd5e1 50%, transparent 50%); background-size: 2px 12px; background-repeat: repeat-y; z-index: 2;">
+                        <!-- Top Cutout -->
+                        <div class="position-absolute bg-black rounded-circle"
+                            style="width: 30px; height: 30px; top: -15px; left: -14px;"></div>
+                        <!-- Bottom Cutout -->
+                        <div class="position-absolute bg-black rounded-circle"
+                            style="width: 30px; height: 30px; bottom: -15px; left: -14px;"></div>
+                    </div>
+                    <div class="d-lg-none w-100 position-relative"
+                        style="height: 2px; background-image: linear-gradient(to right, #cbd5e1 50%, transparent 50%); background-size: 12px 2px; background-repeat: repeat-x; z-index: 2;">
+                        <!-- Left Cutout -->
+                        <div class="position-absolute bg-black rounded-circle d-none d-sm-block"
+                            style="width: 30px; height: 30px; left: -15px; top: -14px;"></div>
+                        <!-- Right Cutout -->
+                        <div class="position-absolute bg-black rounded-circle d-none d-sm-block"
+                            style="width: 30px; height: 30px; right: -15px; top: -14px;"></div>
+                    </div>
+
+                    <!-- Right Bonus Section (Tear-off) -->
+                    <div class="p-5 d-flex flex-column align-items-center justify-content-center text-center position-relative overflow-hidden"
+                        style="min-width: 320px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);">
+                        <!-- Background pattern -->
+                        <i class="bi bi-star-fill position-absolute text-primary"
+                            style="font-size: 16rem; right: -40px; bottom: -40px; transform: rotate(-15deg); opacity: 0.05;"></i>
+
+                        <div class="position-relative z-1">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto shadow-sm"
+                                style="width: 64px; height: 64px;">
+                                <i class="bi bi-star-fill fs-3"
+                                    style="animation: floatWidget 2s ease-in-out infinite;"></i>
+                            </div>
+                            <div
+                                class="badge bg-primary px-3 py-2 rounded-pill fs-8 letter-spacing-1 fw-bold mb-3 shadow-sm">
+                                ENTERPRISE TIER
+                            </div>
+                            <h4 class="font-display fw-bold text-dark mb-2">VIP Integration</h4>
+                            <p class="text-secondary fs-7 font-body mb-4 leading-tight">Priority technical setup &
+                                dedicated account management.</p>
+
+                            <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
+                                class="btn btn-primary-custom w-100 rounded-pill font-body fw-bold fs-7 py-2 shadow">
+                                Unlock Access
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -1151,7 +1401,7 @@
     <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn">
         <i class="bi bi-whatsapp" style="font-size: 32px;"></i>
     </a>
-    
+
     <style>
         .whatsapp-float-btn {
             position: fixed;
@@ -1170,7 +1420,7 @@
             box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
             transition: all 0.3s ease;
         }
-        
+
         .whatsapp-float-btn::before {
             content: "";
             position: absolute;
@@ -1189,12 +1439,13 @@
                 transform: scale(1);
                 opacity: 0.8;
             }
+
             100% {
                 transform: scale(1.8);
                 opacity: 0;
             }
         }
-        
+
         /* Hover effect */
         .whatsapp-float-btn:hover {
             background-color: #128C7E;
@@ -1202,6 +1453,7 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(18, 140, 126, 0.5);
         }
+
         .whatsapp-float-btn:hover::before {
             animation: none;
             opacity: 0;
@@ -1220,7 +1472,96 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Hero Typewriter Animation
+        const typewriterPhrases = [
+            "Easy Integration",
+            "Min Cost / Max Returns",
+            "Attractive ROI",
+            "Excellent RTP 97%",
+            "Attracting Traffic to Platform"
+        ];
+        
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('hero-typewriter');
+        
+        function typeWriter() {
+            if (!typewriterElement) return;
+            
+            const currentPhrase = typewriterPhrases[phraseIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 40 : 80;
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end of phrase
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
+                typeSpeed = 500; // Pause before typing next phrase
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
+        }
+        
+        // Start animation after a short delay
+        setTimeout(typeWriter, 1000);
     </script>
+    
+    <!-- AOS JS for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Auto-inject AOS animation attributes to ALL sections and layout blocks
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll(`
+                section .text-center, 
+                section .row > [class*="col-"], 
+                .hex-wrapper, 
+                .accordion-item, 
+                .hero-stat-bubble,
+                .hero-trust-badge,
+                footer [class*="col-"]
+            `);
+            
+            animateElements.forEach((el, index) => {
+                if (!el.hasAttribute('data-aos')) {
+                    el.setAttribute('data-aos', 'fade-up');
+                    // Stagger delay slightly based on element index for a cascading effect
+                    el.setAttribute('data-aos-delay', (index % 4) * 100); 
+                }
+            });
+
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+        });
+    </script>
+    
+    <style>
+        .typewriter-cursor {
+            font-weight: 300;
+            color: var(--accent);
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
 </body>
 
 </html>

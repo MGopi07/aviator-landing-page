@@ -505,7 +505,7 @@ footer .hover-white:hover {
     padding: 6px 12px;
     border-radius: 100px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
-    border: 1px solid rgba(37, 99, 235, 0.15);
+    border: 1.5px solid rgba(37, 99, 235, 0.35);
     font-size: 0.75rem;
     font-weight: 600;
     color: #1e293b;
@@ -517,7 +517,7 @@ footer .hover-white:hover {
 .hero-trust-badge:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
-    border-color: rgba(37, 99, 235, 0.3);
+    border-color: rgba(37, 99, 235, 0.6);
 }
 
 .hero-trust-badge i {
@@ -583,7 +583,54 @@ footer .hover-white:hover {
 
 .hero-stat-bubble-3 {
     bottom: 12%;
-    left: 8%;
+    left: 15%;
+}
+
+/* Specific Bubble Colors (Match Screenshot) */
+
+/* Bubble 1: Red (World's #1) */
+.hero-stat-bubble-1 {
+    border-color: rgba(220, 38, 38, 0.25) !important;
+}
+.hero-stat-bubble-1 .hsb-icon {
+    background: #dc2626 !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+.hero-stat-bubble-1 .hsb-lbl {
+    color: #dc2626 !important;
+    font-weight: 600;
+}
+
+/* Bubble 2: Green (97% RTP) */
+.hero-stat-bubble-2 {
+    border-color: rgba(22, 163, 74, 0.25) !important;
+}
+.hero-stat-bubble-2 .hsb-icon {
+    background: #16a34a !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+.hero-stat-bubble-2 .hsb-lbl {
+    color: #16a34a !important;
+    font-weight: 600;
+}
+
+/* Bubble 3: Blue (Millions Active) */
+.hero-stat-bubble-3 {
+    border-color: rgba(37, 99, 235, 0.25) !important;
+}
+.hero-stat-bubble-3 .hsb-icon {
+    background: #2563eb !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+.hero-stat-bubble-3 .hsb-lbl {
+    color: #2563eb !important;
+    font-weight: 600;
 }
 
 /* Slightly wider gradient fade on light theme so full headline fits */

@@ -16,10 +16,10 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    
+
     <!-- AOS CSS for scroll animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="light-theme.css">
 </head>
@@ -50,9 +50,9 @@
                             href="#docs">Documentation</a></li>
                 </ul>
                 <div class="d-flex gap-3">
-                    <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
-                        class="btn btn-outline-light rounded-pill px-4 py-2 font-body fs-7 fw-semibold">Contact
-                        Sales</a>
+                    <a href="https://wa.me/264813278786" target="_blank" rel="noopener"
+                        class="btn btn-outline-light rounded-pill px-4 py-2 font-body fs-7 fw-semibold"><i
+                            class="bi bi-whatsapp me-2"></i>Contact Sales</a>
                     <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
                         class="btn btn-primary-custom rounded-pill px-4 py-2 font-body fs-7 fw-semibold">Request
                         Demo</a>
@@ -119,23 +119,36 @@
                 <i class="bi bi-grid-3x3-gap-fill text-primary opacity-10 fs-2"></i>
             </div>
         </div>
-        
-        <!-- Right Half Full-Bleed Image Background to remove gaps -->
-        <div class="position-absolute top-0 end-0 h-100 d-none d-lg-block" style="width: 50vw; background: url('./assets/hero-banner-new.png') center right / cover no-repeat; z-index: 0;">
-            <!-- Smooth fade gradient to seamlessly blend the image into the left side -->
-            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to right, var(--bg-main) 0%, transparent 10%);"></div>
+
+        <!-- Left Edge Soft Cloud Effect -->
+        <div class="position-absolute top-0 start-0 h-100 d-none d-lg-block pointer-events-none"
+            style="width: 25vw; background: url('./assets/cloud-effect-realistic.png') left center / cover no-repeat; z-index: 0; opacity: 0.4; transform: translateX(-4vw);">
+            <!-- Smooth fade to blend perfectly into the background -->
+            <div class="position-absolute top-0 start-0 w-100 h-100"
+                style="background: linear-gradient(to right, transparent 20%, var(--bg-main) 100%);"></div>
         </div>
 
-        <div class="container position-relative z-1" style="padding-top:60px; padding-bottom:60px;">
+        <!-- Right Half Full-Bleed Image Background to remove gaps -->
+        <div class="position-absolute top-0 end-0 h-100 d-none d-lg-block"
+            style="width: 50vw; background: url('./assets/hero-banner-new.png') center right / cover no-repeat; z-index: 0;">
+            <!-- Smooth fade gradient to seamlessly blend the image into the left side -->
+            <div class="position-absolute top-0 start-0 w-100 h-100"
+                style="background: linear-gradient(to right, var(--bg-main) 0%, transparent 10%);"></div>
+        </div>
+
+        <div class="container position-relative z-1 pt-2 pt-lg-5 pb-5">
             <div class="row align-items-center">
 
                 <!-- Left: Text Content -->
-                <div class="col-lg-6 col-xl-6 text-center text-lg-start">
+                <div class="col-lg-6 col-xl-6 text-center text-lg-start mt-3 mt-lg-0">
 
-                    <!-- Top chip -->
-                    <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill mb-4 hero-chip">
-                        <span class="hero-chip-dot"></span>
-                        <span class="font-body fs-8 fw-bold letter-spacing-1 text-uppercase">Official SPRIBE
+                    <!-- Top chip (Highlighted) -->
+                    <div class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill mb-3 mb-lg-4"
+                        style="background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.3); box-shadow: 0 4px 15px rgba(37,99,235,0.1);">
+                        <span class="rounded-circle"
+                            style="width: 8px; height: 8px; background-color: var(--accent); box-shadow: 0 0 8px var(--accent);"></span>
+                        <span class="font-body fs-8 fw-bold letter-spacing-1 text-uppercase text-primary">Official
+                            SPRIBE
                             Distribution Partner</span>
                     </div>
 
@@ -146,13 +159,16 @@
                         <span class="text-gradient" style="font-size:1.05em;">Crash Game</span>
                         <span class="text-white"> Into Your Platform</span>
                     </h1>
-                    
-                    <!-- Dynamic Typewriter Text -->
-                    <div class="font-display fw-bold mb-4 d-flex align-items-center justify-content-center justify-content-lg-start gap-2" 
-                        style="font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--accent); min-height: 2.2rem;">
-                        <i class="bi bi-lightning-charge-fill"></i>
-                        <div>
-                            <span id="hero-typewriter"></span><span class="typewriter-cursor">|</span>
+
+                    <!-- Dynamic Typewriter Text (Highlighted Pill Badge) -->
+                    <div class="d-flex justify-content-center justify-content-lg-start mb-5 text-center text-lg-start">
+                        <div class="font-display fw-bold d-inline-flex align-items-center gap-2 gap-md-3 px-3 py-2 px-md-4 py-md-3 rounded-pill"
+                            style="font-size: clamp(1rem, 2.5vw, 1.75rem); color: #fff; background: linear-gradient(90deg, rgba(37,99,235,0.8), rgba(29,78,216,0.9)); border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 8px 20px rgba(37,99,235,0.3); min-height: 3.5rem;">
+                            <i class="bi bi-lightning-charge-fill text-warning fs-5 fs-md-3"></i>
+                            <div class="text-nowrap overflow-hidden">
+                                <span id="hero-typewriter" style="letter-spacing: 0.5px;"></span><span
+                                    class="typewriter-cursor text-white-50">|</span>
+                            </div>
                         </div>
                     </div>
 
@@ -170,9 +186,9 @@
                             class="btn btn-primary-custom rounded-pill px-4 px-lg-5 py-3 fw-bold font-body fs-6 d-flex align-items-center justify-content-center gap-2 text-nowrap">
                             <i class="bi bi-rocket-takeoff-fill fs-5"></i> Get Started Now
                         </a>
-                        <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
+                        <a href="https://wa.me/264813278786" target="_blank" rel="noopener"
                             class="btn hero-btn-outline rounded-pill px-4 px-lg-5 py-3 fw-bold font-body fs-6 d-flex align-items-center justify-content-center gap-2 text-nowrap">
-                            <i class="bi bi-headset fs-5"></i> Talk to Our Experts
+                            <i class="bi bi-whatsapp fs-5 text-success"></i> WhatsApp Us
                         </a>
                     </div>
 
@@ -196,9 +212,11 @@
 
                 <!-- Right: floating stat pills (and mobile image) -->
                 <div class="col-lg-6 col-xl-6 position-relative mt-5 mt-lg-0" style="min-height: 450px;">
-                    
+
                     <!-- Mobile-only image (Desktop uses the full-bleed background) -->
-                    <img src="./assets/hero-banner-new.png" alt="Aviator" class="img-fluid rounded-4 shadow-lg w-100 d-block d-lg-none" style="object-fit: cover; max-height: 500px;" />
+                    <img src="./assets/hero-banner-new.png" alt="Aviator"
+                        class="img-fluid rounded-4 shadow-lg w-100 d-block d-lg-none"
+                        style="object-fit: cover; max-height: 500px;" />
 
                     <!-- Floating stat bubbles -->
                     <div class="hero-stat-bubble hero-stat-bubble-1 float-anim-1">
@@ -257,7 +275,8 @@
                                 style="box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                                 <i class="bi bi-people-fill text-accent fs-2 mb-2"></i>
                                 <h6 class="text-white fw-bold mb-1 fs-6 lh-sm">Millions of</h6>
-                                <p class="text-white-50 fs-8 mb-0 lh-sm text-uppercase letter-spacing-1">Active Players</p>
+                                <p class="text-white-50 fs-8 mb-0 lh-sm text-uppercase letter-spacing-1">Active Players
+                                </p>
                             </div>
                         </div>
                         <div class="col-6 col-md-3">
@@ -340,7 +359,7 @@
                     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
                     background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
                 }
-                
+
                 /* On mobile, remove the hexagon clip-path so they stack beautifully as normal cards */
                 @media (max-width: 991px) {
                     .hex-cell {
@@ -351,8 +370,9 @@
                         clip-path: none;
                         border-radius: 16px;
                         box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
-                        border: 1px solid rgba(0,0,0,0.05);
+                        border: 1px solid rgba(0, 0, 0, 0.05);
                     }
+
                     .hex-wrapper {
                         filter: none;
                         width: 100%;
@@ -360,14 +380,14 @@
                         justify-content: center;
                     }
                 }
-                
+
                 .hex-cell p {
                     color: #334155 !important;
                     font-size: 0.85rem !important;
                     font-weight: 500;
                     line-height: 1.5;
                 }
-                
+
                 .hex-cell h4 {
                     color: #0f172a !important;
                     font-size: 1.05rem !important;
@@ -498,62 +518,80 @@
                 <div class="d-flex flex-column align-items-center gap-3 d-lg-none mt-4 px-3 w-100">
                     <!-- Card 1 -->
                     <div class="hex-wrapper w-100" style="max-width: 320px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-lightning-charge fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Fast API Integration</h4>
-                            <p class="text-secondary fs-7 mb-0">Launch Aviator quickly with our simple developer-friendly API.</p>
+                            <p class="text-secondary fs-7 mb-0">Launch Aviator quickly with our simple
+                                developer-friendly API.</p>
                         </div>
                     </div>
                     <!-- Card 2 -->
                     <div class="hex-wrapper w-100" style="max-width: 320px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-graph-up-arrow fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Maximum Revenue</h4>
-                            <p class="text-secondary fs-7 mb-0">Low integration cost combined with high player engagement delivers ROI.</p>
+                            <p class="text-secondary fs-7 mb-0">Low integration cost combined with high player
+                                engagement delivers ROI.</p>
                         </div>
                     </div>
                     <!-- Card 3 -->
                     <div class="hex-wrapper w-100" style="max-width: 320px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-people fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Player Retention</h4>
-                            <p class="text-secondary fs-7 mb-0">Fast-paced gameplay encourages repeat sessions and longer play time.</p>
+                            <p class="text-secondary fs-7 mb-0">Fast-paced gameplay encourages repeat sessions and
+                                longer play time.</p>
                         </div>
                     </div>
                     <!-- Card 4 -->
                     <div class="hex-wrapper w-100" style="max-width: 320px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-shield-check fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Provably Fair</h4>
-                            <p class="text-secondary fs-7 mb-0">Every game round is transparent and verifiable, building absolute trust.</p>
+                            <p class="text-secondary fs-7 mb-0">Every game round is transparent and verifiable, building
+                                absolute trust.</p>
                         </div>
                     </div>
                     <!-- Card 5 -->
                     <div class="hex-wrapper w-100" style="max-width: 320px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-phone fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Cross-Platform</h4>
-                            <p class="text-secondary fs-7 mb-0">Flawlessly optimized for desktop, Android, and iOS devices worldwide.</p>
+                            <p class="text-secondary fs-7 mb-0">Flawlessly optimized for desktop, Android, and iOS
+                                devices worldwide.</p>
                         </div>
                     </div>
                     <!-- Card 6 -->
                     <div class="hex-wrapper w-100" style="max-width: 320px;">
-                        <div class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
-                            <div class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
+                        <div
+                            class="hex-cell d-flex flex-column align-items-center justify-content-center p-4 text-center w-100">
+                            <div
+                                class="hex-icon-ring rounded-circle d-flex align-items-center justify-content-center mb-3">
                                 <i class="bi bi-headset fs-4"></i>
                             </div>
                             <h4 class="font-display fw-bold text-dark fs-6 mb-2">Dedicated Support</h4>
-                            <p class="text-secondary fs-7 mb-0">Our technical teams assist you throughout your entire integration journey.</p>
+                            <p class="text-secondary fs-7 mb-0">Our technical teams assist you throughout your entire
+                                integration journey.</p>
                         </div>
                     </div>
                 </div>
@@ -1243,13 +1281,13 @@
                             </div>
 
                             <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                                <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
+                                <a href="https://wa.me/264813278786" target="_blank" rel="noopener"
                                     class="btn btn-primary-custom rounded-pill px-4 py-2 font-body fw-bold fs-7 shadow-sm">
                                     Get Started Now
                                 </a>
-                                <a href="https://aviatorgames.ai/" target="_blank" rel="noopener"
+                                <a href="https://wa.me/264813278786" target="_blank" rel="noopener"
                                     class="btn btn-outline-dark rounded-pill px-4 py-2 font-body fw-bold fs-7">
-                                    API Docs
+                                    Contact Sales
                                 </a>
                             </div>
                         </div>
@@ -1398,7 +1436,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn">
+    <a href="https://wa.me/264813278786" target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn">
         <i class="bi bi-whatsapp" style="font-size: 32px;"></i>
     </a>
 
@@ -1481,17 +1519,17 @@
             "Excellent RTP 97%",
             "Attracting Traffic to Platform"
         ];
-        
+
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
         const typewriterElement = document.getElementById('hero-typewriter');
-        
+
         function typeWriter() {
             if (!typewriterElement) return;
-            
+
             const currentPhrase = typewriterPhrases[phraseIndex];
-            
+
             if (isDeleting) {
                 typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
                 charIndex--;
@@ -1499,9 +1537,9 @@
                 typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
                 charIndex++;
             }
-            
+
             let typeSpeed = isDeleting ? 40 : 80;
-            
+
             if (!isDeleting && charIndex === currentPhrase.length) {
                 typeSpeed = 2000; // Pause at end of phrase
                 isDeleting = true;
@@ -1510,14 +1548,14 @@
                 phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
                 typeSpeed = 500; // Pause before typing next phrase
             }
-            
+
             setTimeout(typeWriter, typeSpeed);
         }
-        
+
         // Start animation after a short delay
         setTimeout(typeWriter, 1000);
     </script>
-    
+
     <!-- AOS JS for scroll animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -1532,12 +1570,12 @@
                 .hero-trust-badge,
                 footer [class*="col-"]
             `);
-            
+
             animateElements.forEach((el, index) => {
                 if (!el.hasAttribute('data-aos')) {
                     el.setAttribute('data-aos', 'fade-up');
                     // Stagger delay slightly based on element index for a cascading effect
-                    el.setAttribute('data-aos-delay', (index % 4) * 100); 
+                    el.setAttribute('data-aos-delay', (index % 4) * 100);
                 }
             });
 
@@ -1548,7 +1586,7 @@
             });
         });
     </script>
-    
+
     <style>
         .typewriter-cursor {
             font-weight: 300;
@@ -1556,10 +1594,17 @@
             animation: blink 1s step-end infinite;
             margin-left: 2px;
         }
-        
+
         @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
+
+            from,
+            to {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
     </style>
 </body>
